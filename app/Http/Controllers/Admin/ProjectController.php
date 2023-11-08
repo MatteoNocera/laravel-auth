@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -14,9 +15,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        /* $projects = Project::all();
-        dd($projects); */
-        return view('admin.projects.index');
+        $projects = Project::orderByDesc('id')->paginate(5);
+        //dd($projects);
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -32,7 +33,13 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Str::slug($request->title, '-');
+
+        Project::created($val_data);
+
+        return to_route('admin.projects.index')->with('message', 'New Project Created ✅');
     }
 
     /**
@@ -40,7 +47,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -48,7 +55,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -64,6 +71,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        /* Controllare se c'è la foto nel public se si cancellala */
+        $project->delete();
+
+        return to_route('projects.index')->with('message', 'Delete succesfully ✅');
     }
 }
