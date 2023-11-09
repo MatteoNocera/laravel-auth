@@ -38,21 +38,21 @@ class ProjectController extends Controller
 
         $val_data = $request->validated();
 
-        /* if ($request->has('cover_image')) {
+        if ($request->has('cover_image')) {
 
-            $cover_image_path = Storage::put('cover_image', $request->cover_image);
+            $cover_image_path = Storage::put('placeholders', $request->cover_image);
 
             if (!is_null($project->cover_image) && Storage::fileExists($project->cover_image)) {
                 Storage::delete($project->cover_image);
             }
             $val_data['cover_image'] = $cover_image_path;
-        } */
+        }
 
         $val_data['slug'] = Str::slug($request->title, '-');
 
         $project->create($val_data);
 
-        return to_route('admin.projects.index', compact('comics'))->with('message', 'New Project Created ✅');
+        return to_route('projects.index', compact('project'))->with('message', 'New Project Created ✅');
     }
 
     /**
