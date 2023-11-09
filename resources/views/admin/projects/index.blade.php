@@ -5,14 +5,11 @@
 
 
         <div class="d-flex justify-content-between">
-            <h1 class="py-4">My Projects</h1>
-            {{-- <a href="{{ route('projects.trash') }}">
-                <h4 class="my-4 display-4 fw-bold">Trash 🚽</h4>
-            </a> --}}
+            <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">My Projects</h1>
 
-            <div class="d-flex align-items-center">
-                <a class="btn btn-primary " href="{{ route('projects.create') }}">➕ Add project</a>
-            </div>
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-primary " href="{{ route('projects.create') }}">➕ Add project</a>
+                </div>
 
         </div>
 
@@ -44,17 +41,19 @@
 
 
                                 <td>
-                                    {{-- @if ($project->cover_image)
-                                        <img width="100" src="{{ asset('storage/' . $post->cover_image) }}"
-                                            alt="">
-                                    @else
-                                        N/A
-                                    @endif --}}
-                                    @if (str_contains($project->cover_image, 'http'))
-                                        <img width="60" src="{{ $project->cover_image }}" alt="">
+                                    @if ($project->cover_image)
+                                        {{-- <img width="60" src="{{ asset('storage/' . $project->cover_image) }}"
+                                            alt=""> --}}
+                                        <img class="img-fluid"
+                                            src="https://picsum.photos/100/100?random={{ $project->id }}">
                                     @else
                                         N/A
                                     @endif
+                                    {{-- @if (str_contains($project->cover_image, 'http'))
+                                        <img width="60" src="{{ $project->cover_image }}" alt="">
+                                    @else
+                                        N/A
+                                    @endif --}}
                                 </td>
                                 <td class="col-2">{{ $project->title }}</td>
                                 <td class="col-4">{{ $project->description }}</td>
