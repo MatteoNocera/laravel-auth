@@ -50,9 +50,9 @@ class ProjectController extends Controller
 
         $val_data['slug'] = Str::slug($request->title, '-');
 
-        Project::created($val_data);
+        $project->create($val_data);
 
-        return to_route('admin.projects.index')->with('message', 'New Project Created ✅');
+        return to_route('admin.projects.index', compact('comics'))->with('message', 'New Project Created ✅');
     }
 
     /**
