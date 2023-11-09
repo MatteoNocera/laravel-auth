@@ -30,8 +30,8 @@
 
         <div class="row row-cols-1 row-cols-md-3 my-5">
             <div class="col">
-                <div class="card shadow">
-                    <div class="card-body bg-dark text-white">
+                <div class="card">
+                    <div class="card-body bg-dark text-white rounded shadow">
                         <h4>
                             Total Projects: {{ $total_projects }}
                         </h4>
@@ -41,14 +41,27 @@
 
             <div class="col">
                 <div class="card shadow">
-                    <div class="card-body bg-dark text-white">
+                    <div class="card-body bg-dark text-white rounded shadow">
                         <h4>
                             Total Users: {{ $total_users }}
                         </h4>
                     </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body bg-dark text-white rounded shadow">
+                        <h4>
+                            Total Projects: {{ $total_projects }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+
 
     </div>
 @endsection
