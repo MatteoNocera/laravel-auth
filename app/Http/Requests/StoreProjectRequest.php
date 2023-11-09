@@ -23,7 +23,7 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:5', 'max:50', 'unique:project'],
+            'title' => ['required', 'min:5', 'max:50', 'unique:projects'],
             'description' => ['nullable'],
             'cover_image' => ['nullable', 'image', 'max:500', 'mimes:png,jpg']
         ];
