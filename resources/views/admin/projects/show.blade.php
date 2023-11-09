@@ -41,7 +41,12 @@
 
                         <div class="card-footer d-flex justify-content-end">
 
-                            <a href="{{ route('projects.edit', $project) }}" class="btn btn-secondary">Edit</a>
+                            <a class="btn btn-dark" href="https://github.com/MatteoNocera?tab=repositories" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-github fa-lg"></i>
+                            </a>
+
+                            <a href="{{ route('projects.edit', $project) }}" class="btn btn-secondary ms-4">Edit</a>
 
 
                             <!-- Modal trigger button -->
