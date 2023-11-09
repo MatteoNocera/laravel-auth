@@ -22,16 +22,24 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" id="title"
-                            aria-describedby="help_title" placeholder="Type new project title here">
+                        <input type="text" class="form-control" @error('title') is-invalid @enderror name="title"
+                            id="title" aria-describedby="help_title" placeholder="Type new project title here"
+                            value="{{ old('title', $project->title) }}">
                         <small id="help_title" class="form-text text-muted">Type max 50 characters</small>
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" name="description" id="description"
-                            aria-describedby="help_description" placeholder="Type new project title here">
+                        <input type="text" class="form-control" @error('description') is-invalid @enderror
+                            name="description" id="description" aria-describedby="help_description"
+                            placeholder="Type new project description here"value="{{ old('description', $project->description) }}">
                         <small id="help_description" class="form-text text-muted">Type max 50 characters</small>
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
@@ -39,7 +47,12 @@
                         <input type="file" class="form-control" name="cover_image" id="cover_image" placeholder=""
                             aria-describedby="fileHelpId">
                         <div id="fileHelpId" class="form-text">Add an Image, MAX 500kb</div>
+                        @error('cover_image')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
+
+                    <button class="btn btn-primary" type="submit">Save</button>
 
                 </form>
             </div>

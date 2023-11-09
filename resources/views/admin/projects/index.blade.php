@@ -10,8 +10,10 @@
                 <h4 class="my-4 display-4 fw-bold">Trash 🚽</h4>
             </a> --}}
 
-            <a class="btn btn-primary " href="{{ route('projects.create') }}">➕ Add
-                project</a>
+            <div class="d-flex align-items-center">
+                <a class="btn btn-primary " href="{{ route('projects.create') }}">➕ Add project</a>
+            </div>
+
         </div>
 
         @if (session('message'))

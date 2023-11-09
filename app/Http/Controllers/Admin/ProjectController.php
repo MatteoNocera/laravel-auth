@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -23,9 +24,9 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('admin.projects.create');
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
@@ -33,7 +34,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        $project = new Project();
+
         $val_data = $request->validated();
+
+        /* if ($request->has('cover_image')) {
+
+            $cover_image_path = Storage::put('cover_image', $request->cover_image);
+
+            if (!is_null($project->cover_image) && Storage::fileExists($project->cover_image)) {
+                Storage::delete($project->cover_image);
+            }
+            $val_data['cover_image'] = $cover_image_path;
+        } */
 
         $val_data['slug'] = Str::slug($request->title, '-');
 
@@ -63,7 +76,15 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $val_data = $request->validated();
+        if ($request->has('cover_image')) {
+            $path = Storage::put('placeholders', $request->cover_image);
+            $val_data['cover_image'] = $path;
+        }
+
+        $project->update($val_data);
+
+        return to_route('projects.index')->with('message', 'Project updated successfully ✅');
     }
 
     /**
@@ -72,6 +93,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         /* Controllare se c'è la foto nel public se si cancellala */
+        if (!is_null($project->cover_image)) {
+            Storage::delete($project->cover_image);
+        }
+
         $project->delete();
 
         return to_route('projects.index')->with('message', 'Delete succesfully ✅');

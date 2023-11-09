@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::id() === 1;
     }
 
     /**
@@ -22,7 +23,7 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:5', 'max:50'],
+            'title' => ['required', 'min:5', 'max:50', 'unique:project'],
             'description' => ['nullable'],
             'cover_image' => ['nullable', 'image', 'max:500', 'mimes:png,jpg']
         ];

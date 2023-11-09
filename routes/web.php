@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\TrashController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +28,6 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name("admin.")->group(
 });
 
 Route::get('/projects/show/{project}', [ProjectController::class, 'show'])->name('show');
-
-/* Route::delete('/admin/projects/trash', [TrashController::class, 'trash'])->name('trash'); */
 
 Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
 
