@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Create New Project</h1>
+        <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">Create New Project</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger" role="alert">
@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <div class="card">
+        <div class="card shadow">
             <div class="card-body">
                 <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
 
