@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4">
-        <div class="row row-cols-1 row-cols-md-3 justify-content-around">
+        <div class="row row-cols-1 justify-content-around">
             <div class="col">
                 <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">Edit Project Id: #{{ $project->id }}</h1>
                     @if ($errors->any())

@@ -22,7 +22,7 @@
 
         <div class="card mt-4 shadow my-4">
             <div class="table-responsive">
-                <table class="table table-secondary mb-0">
+                <table class="table table-dark table-striped table-hover mb-0">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
@@ -59,15 +59,16 @@
                                 <td class="col-4">{{ $project->description }}</td>
 
                                 <td class="text-center">
-                                    <a href="{{ route('projects.show', $project->id) }}"
-                                        class="btn btn-primary mx-4">View</a>
-                                    <a href="{{ route('projects.edit', $project) }}" class="btn btn-secondary">Edit</a>
+                                    <a href="{{ route('projects.show', $project->id) }}" class=" mx-4"><i
+                                            class="fa-solid fa-eye"></i></a>
+
+
+                                    <a href="{{ route('projects.edit', $project) }}" class="text-secondary"><i
+                                            class="fa-solid fa-file-pen"></i></a>
 
                                     <!-- Modal trigger button -->
-                                    <button type="button" class="btn btn-danger mx-4" data-bs-toggle="modal"
-                                        data-bs-target="#modalId">
-                                        Delete
-                                    </button>
+                                    <a type="button" class="text-danger mx-4" data-bs-toggle="modal"
+                                        data-bs-target="#modalId"><i class="fa-solid fa-trash-can"></i></a>
 
                                     <!-- Modal Body -->
                                     <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->

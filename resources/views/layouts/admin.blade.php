@@ -27,14 +27,22 @@
     <div id="app">
 
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">
-                <i class="fa-solid fa-house fa-lg"></i>
-            </a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-                data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            <div class="d-none d-md-block">
+                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{{ url('/') }}">
+                    <i class="fa-solid fa-house fa-lg"></i>
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+
 
             <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
 
@@ -71,6 +79,13 @@
                     <div class="position-sticky pt-3">
 
                         <ul class="nav flex-column">
+
+                            <li class="">
+                                <a class="d-md-none nav-link text-white {{ Route::currentRouteName() == '/' ? 'bg-secondary' : '' }}"
+                                    href="{{ url('/') }}">
+                                    <i class="fa-solid fa-house fa-lg fa-fw"></i> Home
+                                </a>
+                            </li>
 
                             <li class="nav-item">
 
