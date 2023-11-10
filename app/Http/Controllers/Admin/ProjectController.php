@@ -101,4 +101,11 @@ class ProjectController extends Controller
 
         return to_route('projects.index')->with('message', 'Delete succesfully ✅');
     }
+
+    public function trashed()
+    {
+        $projects = Project::onlyTrashed()->get();
+
+        return view('admin.projects.trashed', compact('projects'));
+    }
 }

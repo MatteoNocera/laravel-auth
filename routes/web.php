@@ -22,14 +22,17 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name("admin.")->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/projects/index', ProjectController::class);
+    /* Route::get('/projects/index', ProjectController::class); */
+
+    Route::get('/projects/trashed', [ProjectController::class, 'trashed'])->name('trashed');
 });
 
 Route::get('/projects/show/{project}', [ProjectController::class, 'show'])->name('show');
 
 Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+
 
 
 Route::middleware('auth')->group(function () {

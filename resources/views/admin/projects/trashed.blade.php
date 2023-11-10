@@ -1,19 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <h1>Trash</h1>
+    {{-- <div class="container">
 
-        <a class="btn btn-secondary mt-2" href="{{ route('admin.dashboard') }}">
-            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        <a class="btn btn-secondary mt-2" href="{{ route('projects.index') }}">
+            <i class="fa-solid fa-arrow-left"></i> Back to Projects List
         </a>
 
         <div class="d-flex justify-content-between">
-            <h2 class="my-5 display-3 fw-bold text-muted">My Projects</h1>
-
-                <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-primary " href="{{ route('projects.create') }}">➕ Add project</a>
-                    <a class="btn btn-outline-danger " href="{{ route('projects.trashed') }}">🗑 See Trashed Projects</a>
-                </div>
+            <h2 class="my-5 display-3 fw-bold text-muted">Trashed Projects</h1>
 
         </div>
 
@@ -47,7 +43,7 @@
                                 <td class="text-center align-middle">
                                     @if ($project->cover_image)
                                         {{-- <img width="60" src="{{ asset('storage/' . $project->cover_image) }}"
-                                            alt=""> --}}
+                                            alt=""> 
                                         <img class="img-fluid"
                                             src="https://picsum.photos/100/100?random={{ $project->id }}">
                                     @else
@@ -57,7 +53,7 @@
                                         <img width="60" src="{{ $project->cover_image }}" alt="">
                                     @else
                                         N/A
-                                    @endif --}}
+                                    @endif
                                 </td>
                                 <td class="col-4 text-center align-middle">{{ $project->title }}</td>
                                 <td class="col-2 align-middle">
@@ -80,7 +76,7 @@
 
 
                                     <a href="{{ route('projects.edit', $project) }}" class="btn btn-outline-dark"><i
-                                            class="fa-solid fa-file-pen"></i></a>
+                                            class="fa-solid fa-recycle"></i></a>
 
                                     <!-- Modal trigger button -->
                                     <a type="button" class="btn btn-outline-danger mx-4" data-bs-toggle="modal"
@@ -128,9 +124,9 @@
 
                             </tr>
                         @empty
-                            <tr class="table-secondary">
+                            <tr class="table table-dark table-hover">
 
-                                <td scope="row">No Projects yet!!!</td>
+                                <td scope="row">No Trashed Projects yet!!!</td>
 
                             </tr>
                         @endforelse
@@ -144,5 +140,5 @@
 
         {{ $projects->links('pagination::bootstrap-5') }}
 
-    </div>
+    </div> --}}
 @endsection
