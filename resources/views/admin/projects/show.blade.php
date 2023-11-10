@@ -12,15 +12,16 @@
         <div class="row mt-3">
 
             <div class="col-9">
-                <div class="card mb-3 shadow-lg">
+                <div class="card mb-3 shadow-lg bg-dark text-white">
 
                     <div class="row g-0">
-                        <div class="col-lg-5 text-center">
+                        <div class="col-lg-5 text-center py-2">
 
                             @if ($project->cover_image)
                                 {{-- <img width="300" src="{{ asset('storage/placeholders' . $project->cover_image) }}"
                                         alt=""> --}}
-                                <img class="img-fluid" src="https://picsum.photos/300/300?random={{ $project->id }}">
+                                <img class="img-fluid rounded-2"
+                                    src="https://picsum.photos/300/300?random={{ $project->id }}">
                             @else
                                 N/A
                             @endif
@@ -33,35 +34,39 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="card-body">
-                                <h5 class="card-title fs-4"><span class="text-muted">Title: </span>{{ $project->title }}
+                                <h5 class="card-title fs-4"><span class="text-white-50">Title: </span>{{ $project->title }}
                                 </h5>
 
-                                <p class="card-text fs-5"><span class="text-muted">Description:
+                                <p class="card-text fs-5"><span class="text-white-50">Description:
                                     </span>{{ $project->description }}</p>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-footer d-flex justify-content-end">
+                    <div class="card-footer d-flex justify-content-end bg-secondary bg-gradient align-items-center gap-4">
 
-                        <a class="btn btn-dark" href="http://127.0.0.1:8000/projects/{{ $project->id }}" target="_blank"
-                            rel="noopener noreferrer">
+                        <a class="btn btn-outline-dark" href="http://127.0.0.1:8000/projects/{{ $project->id }}"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-link fa-lg"></i>
                         </a>
 
-                        <a class="btn btn-dark ms-4" href="https://github.com/MatteoNocera?tab=repositories" target="_blank"
-                            rel="noopener noreferrer">
+                        <a class="btn btn-outline-dark" href="https://github.com/MatteoNocera?tab=repositories"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="fa-brands fa-github fa-lg"></i>
                         </a>
 
-                        <a href="{{ route('projects.edit', $project) }}" class="btn btn-secondary ms-4">Edit</a>
-
+                        {{-- <a href="{{ route('projects.edit', $project) }}" class="btn btn-secondary ms-4">Edit</a> --}}
+                        <a href="{{ route('projects.edit', $project) }}" class="btn btn-outline-dark"><i
+                                class="fa-solid fa-file-pen"></i></a>
 
                         <!-- Modal trigger button -->
-                        <button type="button" class="btn btn-danger ms-4" data-bs-toggle="modal" data-bs-target="#modalId">
+                        {{-- <button type="button" class="btn btn-danger ms-4" data-bs-toggle="modal" data-bs-target="#modalId">
                             Delete
-                        </button>
+                        </button> --}}
+                        <a type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalId">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
 
                         <!-- Modal Body -->
                         <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->

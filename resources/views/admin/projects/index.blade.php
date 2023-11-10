@@ -57,26 +57,29 @@
                                 </td>
                                 <td class="col-4 text-center align-middle">{{ $project->title }}</td>
                                 <td class="col-2 align-middle">
-                                    <a class="btn btn-dark m-1" href="https://github.com/MatteoNocera?tab=repositories"
-                                        target="_blank" rel="noopener noreferrer">
+                                    <a class="btn btn-outline-dark m-1"
+                                        href="https://github.com/MatteoNocera?tab=repositories" target="_blank"
+                                        rel="noopener noreferrer">
                                         <i class="fa-brands fa-github fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-dark m-1" href="http://127.0.0.1:8000/projects/{{ $project->id }}"
-                                        target="_blank" rel="noopener noreferrer">
+                                    <a class="btn btn-outline-dark m-1"
+                                        href="http://127.0.0.1:8000/projects/{{ $project->id }}" target="_blank"
+                                        rel="noopener noreferrer">
                                         <i class="fa-solid fa-link fa-lg"></i>
                                     </a>
                                 </td>
 
                                 <td class="text-center align-middle">
-                                    <a href="{{ route('projects.show', $project->id) }}" class=" mx-4"><i
-                                            class="fa-solid fa-eye"></i></a>
+
+                                    <a href="{{ route('projects.show', $project->id) }}"
+                                        class="btn btn-outline-info mx-4"><i class="fa-solid fa-eye"></i></a>
 
 
-                                    <a href="{{ route('projects.edit', $project) }}" class="text-secondary"><i
+                                    <a href="{{ route('projects.edit', $project) }}" class="btn btn-outline-dark"><i
                                             class="fa-solid fa-file-pen"></i></a>
 
                                     <!-- Modal trigger button -->
-                                    <a type="button" class="text-danger mx-4" data-bs-toggle="modal"
+                                    <a type="button" class="btn btn-outline-danger mx-4" data-bs-toggle="modal"
                                         data-bs-target="#modalId"><i class="fa-solid fa-trash-can"></i></a>
 
                                     <!-- Modal Body -->

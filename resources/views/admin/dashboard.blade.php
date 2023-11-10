@@ -66,8 +66,8 @@
         <div class="row row-cols-1 row-cols-3 mt-1">
             @foreach ($projects as $project)
                 <div class="col">
-                    <div class="card shadow text-center">
-                        <div class="card-header">
+                    <div class="card shadow text-center bg-dark text-white">
+                        <div class="card-header bg-secondary text-black">
                             Project #{{ $project->id }}
                         </div>
                         <div class="card-img-top mt-2">
@@ -82,8 +82,8 @@
                             </div>
 
                         </div>
-                        <div class="card-footer">
-                            <a class="btn btn-dark m-1" href="http://127.0.0.1:8000/projects/{{ $project->id }}"
+                        <div class="card-footer bg-secondary">
+                            <a class="btn btn-outline-dark m-1" href="http://127.0.0.1:8000/projects/{{ $project->id }}"
                                 target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-link fa-lg"></i>
                             </a>
