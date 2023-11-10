@@ -40,7 +40,7 @@
                                 <td class="align-middle" scope="row">{{ $project->id }}</td>
 
 
-                                <td class="text-center">
+                                <td class="text-center align-middle">
                                     @if ($project->cover_image)
                                         {{-- <img width="60" src="{{ asset('storage/' . $project->cover_image) }}"
                                             alt=""> --}}
