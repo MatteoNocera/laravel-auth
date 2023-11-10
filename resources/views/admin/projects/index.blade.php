@@ -12,7 +12,8 @@
 
                 <div class="d-flex align-items-center gap-2">
                     <a class="btn btn-outline-primary " href="{{ route('projects.create') }}">➕ Add project</a>
-                    <a class="btn btn-outline-danger " href="{{ route('projects.trashed') }}">🗑 See Trashed Projects</a>
+                    <a class="btn btn-outline-danger " href="{{ route('admin.trashed') }}">🗑 See Trashed
+                        Projects</a>
                 </div>
 
         </div>

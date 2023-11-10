@@ -60,7 +60,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.projects.show', compact('project'));
+        $trashed_projects = Project::onlyTrashed()->get();
+        return view('admin.projects.show', compact('project', 'trashed_projects'));
     }
 
     /**
@@ -93,9 +94,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         /* Controllare se c'è la foto nel public se si cancellala */
-        if (!is_null($project->cover_image)) {
+        /* if (!is_null($project->cover_image)) {
             Storage::delete($project->cover_image);
-        }
+        } */
 
         $project->delete();
 
@@ -107,5 +108,23 @@ class ProjectController extends Controller
         $projects = Project::onlyTrashed()->get();
 
         return view('admin.projects.trashed', compact('projects'));
+    }
+
+    public function restore($id)
+    {
+        $project = Project::onlyTrashed()->find($id);
+
+        $project->restore();
+
+        return to_route('projects.index')->with('message', 'Restore succesfully ✅');
+    }
+
+    public function forceDelete($id)
+    {
+        $project = Project::onlyTrashed()->find($id);
+
+        $project->forceDelete();
+
+        return to_route('admin.trashed')->with('message', 'Total delete succesfully ✅');
     }
 }

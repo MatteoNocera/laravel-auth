@@ -24,14 +24,16 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name("admin.")->group(
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    /* Route::get('/projects/index', ProjectController::class); */
-
     Route::get('/projects/trashed', [ProjectController::class, 'trashed'])->name('trashed');
+
+    Route::get('/restore/{id}', [ProjectController::class, 'restore'])->name('restore');
+
+    Route::delete('/forceDelete/{id}', [ProjectController::class, 'forceDelete'])->name('forceDelete');
 });
 
-Route::get('/projects/show/{project}', [ProjectController::class, 'show'])->name('show');
 
-Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+Route::resource('projects', ProjectController::class)/* ->parameters(['projects' => 'project:slug']) */;
+
 
 
 

@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Trash</h1>
-    {{-- <div class="container">
+    <div class="container">
 
         <a class="btn btn-secondary mt-2" href="{{ route('projects.index') }}">
             <i class="fa-solid fa-arrow-left"></i> Back to Projects List
@@ -20,7 +19,7 @@
             </div>
         @endif
 
-        <div class="card mt-4 shadow my-4">
+        <div class="card mt-4 shadow my-4 bg-dark">
             <div class="table-responsive">
                 <table class="table table-dark table-striped table-hover mb-0">
                     <thead>
@@ -43,7 +42,7 @@
                                 <td class="text-center align-middle">
                                     @if ($project->cover_image)
                                         {{-- <img width="60" src="{{ asset('storage/' . $project->cover_image) }}"
-                                            alt=""> 
+                                            alt=""> --}}
                                         <img class="img-fluid"
                                             src="https://picsum.photos/100/100?random={{ $project->id }}">
                                     @else
@@ -53,7 +52,7 @@
                                         <img width="60" src="{{ $project->cover_image }}" alt="">
                                     @else
                                         N/A
-                                    @endif
+                                    @endif --}}
                                 </td>
                                 <td class="col-4 text-center align-middle">{{ $project->title }}</td>
                                 <td class="col-2 align-middle">
@@ -71,11 +70,7 @@
 
                                 <td class="text-center align-middle">
 
-                                    <a href="{{ route('projects.show', $project->id) }}"
-                                        class="btn btn-outline-info mx-4"><i class="fa-solid fa-eye"></i></a>
-
-
-                                    <a href="{{ route('projects.edit', $project) }}" class="btn btn-outline-dark"><i
+                                    <a href="{{ route('admin.restore', $project->id) }}" class="btn btn-outline-success"><i
                                             class="fa-solid fa-recycle"></i></a>
 
                                     <!-- Modal trigger button -->
@@ -105,7 +100,7 @@
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
 
-                                                    <form action="{{ route('projects.destroy', $project->id) }}"
+                                                    <form action="{{ route('admin.forceDelete', $project->id) }}"
                                                         method="POST">
 
                                                         @csrf
@@ -124,11 +119,7 @@
 
                             </tr>
                         @empty
-                            <tr class="table table-dark table-hover">
-
-                                <td scope="row">No Trashed Projects yet!!!</td>
-
-                            </tr>
+                            <td class="bg-dark">No Trashed Projects yet!!!</td>
                         @endforelse
 
 
@@ -138,7 +129,7 @@
 
         </div>
 
-        {{ $projects->links('pagination::bootstrap-5') }}
+        {{-- {{ $projects->links('pagination::bootstrap-5') }} --}}
 
-    </div> --}}
+    </div>
 @endsection
