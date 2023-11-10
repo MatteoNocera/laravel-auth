@@ -7,8 +7,9 @@
         <div class="d-flex justify-content-between">
             <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">My Projects</h1>
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center gap-2">
                     <a class="btn btn-primary " href="{{ route('projects.create') }}">➕ Add project</a>
+                    <a class="btn btn-danger " href="#">🗑 See Trashed Projects</a>
                 </div>
 
         </div>
