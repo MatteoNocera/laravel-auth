@@ -14,6 +14,8 @@ class DashboardController extends Controller
         $total_projects = Project::all()->count();
         $total_users = User::all()->count();
 
-        return view('admin.dashboard', compact('user', 'total_projects', 'total_users'));
+        $projects = Project::all()->take(-3)->sortByDesc('id');
+
+        return view('admin.dashboard', compact('user', 'total_projects', 'total_users', 'projects'));
     }
 }

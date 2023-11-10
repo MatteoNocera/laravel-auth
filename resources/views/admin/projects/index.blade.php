@@ -24,23 +24,23 @@
             <div class="table-responsive">
                 <table class="table table-dark table-striped table-hover mb-0">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th scope="col">Id</th>
                             <th scope="col">Image</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Description</th>
+                            <th scope="col">Links</th>
                             <th scope="col" class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
 
                         @forelse ($projects as $project)
-                            <tr class="table-secondary">
+                            <tr class="table-secondary text-center">
 
-                                <td scope="row">{{ $project->id }}</td>
+                                <td class="align-middle" scope="row">{{ $project->id }}</td>
 
 
-                                <td>
+                                <td class="text-center">
                                     @if ($project->cover_image)
                                         {{-- <img width="60" src="{{ asset('storage/' . $project->cover_image) }}"
                                             alt=""> --}}
@@ -55,10 +55,19 @@
                                         N/A
                                     @endif --}}
                                 </td>
-                                <td class="col-2">{{ $project->title }}</td>
-                                <td class="col-4">{{ $project->description }}</td>
+                                <td class="col-4 text-center align-middle">{{ $project->title }}</td>
+                                <td class="col-2 align-middle">
+                                    <a class="btn btn-dark m-1" href="https://github.com/MatteoNocera?tab=repositories"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-brands fa-github fa-lg"></i>
+                                    </a>
+                                    <a class="btn btn-dark m-1" href="http://127.0.0.1:8000/projects/{{ $project->id }}"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <i class="fa-solid fa-link fa-lg"></i>
+                                    </a>
+                                </td>
 
-                                <td class="text-center">
+                                <td class="text-center align-middle">
                                     <a href="{{ route('projects.show', $project->id) }}" class=" mx-4"><i
                                             class="fa-solid fa-eye"></i></a>
 

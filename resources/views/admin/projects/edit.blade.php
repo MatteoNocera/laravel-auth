@@ -15,6 +15,10 @@
                         </div>
                     @endif
 
+                    <a class="btn btn-secondary" href="{{ route('projects.index') }}">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Projects List
+                    </a>
+
                     <form action="{{ route('projects.update', $project) }}" method="post" enctype="multipart/form-data">
 
                         @csrf
@@ -45,6 +49,9 @@
                             Update
                         </button>
 
+                        <a class="btn btn-secondary" href="{{ route('projects.index') }}">
+                            Cancel
+                        </a>
 
                     </form>
 
