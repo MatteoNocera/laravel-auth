@@ -2,26 +2,27 @@
 
 @section('content')
     <div class="container">
-        <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">Your project n° : #{{ $project->id }}
-        </h2>
 
-        <a class="btn btn-secondary" href="{{ route('projects.index') }}">
+        <a class="btn btn-secondary mt-2" href="{{ route('projects.index') }}">
             <i class="fa-solid fa-arrow-left"></i> Back to Projects List
         </a>
 
-        <div class="row mt-3">
+        <h2 class="my-5 display-3 fw-bold text-muted">Your project n° : #{{ $project->id }}
+        </h2>
 
-            <div class="col-9">
+        <div class="row py-4">
+
+            <div class="col">
                 <div class="card mb-3 shadow-lg bg-dark text-white">
 
-                    <div class="row g-0">
+                    <div class="row g-0 p-4">
                         <div class="col-lg-5 text-center py-2">
 
                             @if ($project->cover_image)
                                 {{-- <img width="300" src="{{ asset('storage/placeholders' . $project->cover_image) }}"
                                         alt=""> --}}
                                 <img class="img-fluid rounded-2"
-                                    src="https://picsum.photos/300/300?random={{ $project->id }}">
+                                    src="https://picsum.photos/400/400?random={{ $project->id }}">
                             @else
                                 N/A
                             @endif
@@ -34,10 +35,11 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="card-body">
-                                <h5 class="card-title fs-4"><span class="text-white-50">Title: </span>{{ $project->title }}
+                                <h5 class="card-title fs-4 my-4"><span class="text-white-50">Title:
+                                    </span>{{ $project->title }}
                                 </h5>
 
-                                <p class="card-text fs-5"><span class="text-white-50">Description:
+                                <p class="card-text fs-5 py-4"><span class="text-white-50">Description:
                                     </span>{{ $project->description }}</p>
 
                             </div>

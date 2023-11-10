@@ -28,9 +28,9 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 my-5">
+        <div class="row row-cols-1 row-cols-lg-3 my-5">
             <div class="col">
-                <div class="card">
+                <div class="card shadow h-100">
                     <div class="card-body bg-dark text-white rounded shadow">
                         <h4>
                             Total Projects: {{ $total_projects }}
@@ -40,7 +40,7 @@
             </div>
 
             <div class="col">
-                <div class="card shadow">
+                <div class="card shadow h-100">
                     <div class="card-body bg-dark text-white rounded shadow">
                         <h4>
                             Total Users: {{ $total_users }}
@@ -50,7 +50,7 @@
             </div>
 
             <div class="col">
-                <div class="card">
+                <div class="card shadow h-100">
                     <div class="card-body bg-dark text-white rounded shadow">
                         <h4>
                             Total Projects: {{ $total_projects }}

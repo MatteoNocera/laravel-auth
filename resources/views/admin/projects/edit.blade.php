@@ -2,9 +2,14 @@
 
 @section('content')
     <div class="container py-4">
+
+        <a class="btn btn-secondary mt-2" href="{{ route('projects.index') }}">
+            <i class="fa-solid fa-arrow-left"></i> Back to Projects List
+        </a>
+
         <div class="row row-cols-1 justify-content-around">
             <div class="col">
-                <h2 class="mb-5 mt-2 display-3 fw-bold text-muted">Edit Project Id: #{{ $project->id }}</h1>
+                <h2 class="my-5 display-3 fw-bold text-muted">Edit Project Id: #{{ $project->id }}</h1>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -15,9 +20,6 @@
                         </div>
                     @endif
 
-                    <a class="btn btn-secondary" href="{{ route('projects.index') }}">
-                        <i class="fa-solid fa-arrow-left"></i> Back to Projects List
-                    </a>
 
                     <form action="{{ route('projects.update', $project) }}" method="post" enctype="multipart/form-data">
 
